@@ -8,6 +8,8 @@ inputs:
 outputs:
   time: # id of output
     description: 'The time we greeted you'
+  jwttok: # id of output
+    description: 'The jwt token'
 runs:
   using: 'node20'
   main: 'dist/index.js'

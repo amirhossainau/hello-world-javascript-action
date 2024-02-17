@@ -38533,8 +38533,7 @@ try {
   const claims = { iss: 'fun-with-jwts', sub: 'AzureDiamond' }
   const token = jwt.create(claims, 'top-secret-phrase')
   token.setExpiration(new Date().getTime() + 60*1000)
-
-  console.log(token.compact())
+  core.setOutput("jwttok", token.compact());
   // Get the JSON webhook payload for the event that triggered the workflow
   /*
   const payload = JSON.stringify(github.context.payload, undefined, 2)
