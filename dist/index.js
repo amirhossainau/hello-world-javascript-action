@@ -38448,9 +38448,9 @@ try {
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
 
-  const response = fetch('https://api.example.com/data');
-  const json = response.json();
-  console.log(`${json}`)
+  const response =  fetch('https://api.example.com/data');
+  const json =  response.json();
+  console.log(json.JSON())
 } catch (error) {
   core.setFailed(error.message);
 }
