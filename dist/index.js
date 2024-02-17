@@ -28929,6 +28929,14 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
+/***/ 5640:
+/***/ ((module) => {
+
+module.exports = eval("require")("node-fetch");
+
+
+/***/ }),
+
 /***/ 9491:
 /***/ ((module) => {
 
@@ -30815,7 +30823,9 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(5127);
 const github = __nccwpck_require__(3134);
+const fetch = __nccwpck_require__(5640);
 
+console.log(json);
 try {
   // `who-to-greet` input defined in action metadata file
   const nameToGreet = core.getInput('who-to-greet');
@@ -30825,6 +30835,10 @@ try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
+
+  const response = fetch('https://api.example.com/data');
+  const json = response.json();
+  console.log(`${json}`)
 } catch (error) {
   core.setFailed(error.message);
 }
