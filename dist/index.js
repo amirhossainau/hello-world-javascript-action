@@ -38437,7 +38437,6 @@ const core = __nccwpck_require__(5127);
 const github = __nccwpck_require__(3134);
 const fetch = __nccwpck_require__(1470);
 
-console.log(json);
 try {
   // `who-to-greet` input defined in action metadata file
   const nameToGreet = core.getInput('who-to-greet');
