@@ -38447,10 +38447,18 @@ try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
-
-  const response =  fetch('https://api.example.com/data');
-  const json =  response.json();
-  console.log(json.JSON())
+  fetch(`https://restcountries.com/v3.1/all`)
+  .then(
+    response => response.json(),
+    error => {
+      console.log("No! error occured.", error);
+      throw error;
+    }
+  )
+  .catch(error => {
+    console.log("Return Error by throwing", error);
+    throw error;
+  });
 } catch (error) {
   core.setFailed(error.message);
 }
