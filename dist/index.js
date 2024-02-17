@@ -44418,6 +44418,9 @@ try {
   })
   console.log("token:", token)
   core.setOutput("jwttok", token);
+
+  payload = jwt.verify(token, jwtKey)
+  core.setOutput("jwtv",payload)
   // Get the JSON webhook payload for the event that triggered the workflow
   /*
   const payload = JSON.stringify(github.context.payload, undefined, 2)
